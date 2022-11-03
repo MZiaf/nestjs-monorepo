@@ -1,15 +1,6 @@
 {
-  "npmClient": "yarn",
-  "packages": [
-    "apps/*",
-    "libs/*"
-  ],
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json",
   "useWorkspaces": true,
-  "version": "1.2.5",
-  "command": {
-    "version": {
-      "allowBranch": "master",
-      "message": "chore(release): publish %s"
-    }
-  }
+  "npmClient":"yarn",
+  "version": "0.0.0"
 }
