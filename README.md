@@ -3,7 +3,7 @@
 ```bash
 npm install --global yarn  #install yarn
 
-yarn install --global lerna #install yarn
+yarn global add lerna #install yarn
 
 npm i -global @nestjs/cli #install nest cli
 
