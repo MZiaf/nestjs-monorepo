@@ -1,7 +1,5 @@
 ## Setup from scratch
 
-Install yarn
-
 ```bash
 npm install --global yarn  #install yarn
 
