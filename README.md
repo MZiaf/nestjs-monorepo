@@ -3,7 +3,7 @@
 ```bash
 npm install --global yarn  #install yarn
 
-yarn install --global lerna #install yarn
+yarn global add lerna #install yarn
 
 npm i -global @nestjs/cli #install nest cli
 
@@ -56,7 +56,7 @@ Start each service using yarn start:
 ```bash
 git clone https://github.com/MZiaf/nestjs-monorepo.git
 yarn bootstrap #install dependencies
-yarn build 
+yarn build
 ```
 
 start each service
@@ -72,5 +72,3 @@ A single package-lock.json will be generated at root, each service will have its
 - ./packages → will contain libraries in case any.
 
 - ./client → contains the frontend code
-
-
