@@ -8,7 +8,8 @@
   "scripts": {
     "clean": "lerna clean",
     "bootstrap": "lerna bootstrap",
-    "build": "lerna run build"
+    "build": "lerna run build",
+    "db:migrate":"lerna exec npx prisma migrate dev --scope=project-a"
   },
   "devDependencies": {
     "lerna": "^6.0.1"
