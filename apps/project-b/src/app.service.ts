@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
-  getHello(): { title: string; body: string } {
-    return { title: 'projectB', body: 'projectB' };
+  getHello(): { name: string; email: string } {
+    return { name: 'projectB', email: 'projectB@retailo.co' };
   }
 }
