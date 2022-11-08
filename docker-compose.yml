@@ -1,0 +1,47 @@
+version: "3.8"
+
+services:
+  postgres:
+    container_name: postgres
+    image: postgres
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      DB_HOST: ${DB_HOST}
+    ports:
+      - "5432:5432"
+    networks:
+      - invoice-network
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  project-a:
+    container_name: project-a
+    build:
+      context: ./apps/project-a
+    ports:
+      - 3000:3000
+    depends_on:
+      - postgres
+    networks:
+      - invoice-network
+
+  project-b:
+    container_name: project-b
+    build:
+      context: ./apps/project-b
+    ports:
+      - 3001:3001
+
+  serverless:
+    container_name: serverless
+    build:
+      context: ./apps/serverless
+    ports:
+      - 4000:4000
+
+networks:
+  invoice-network:
+
+volumes:
+  db-data:

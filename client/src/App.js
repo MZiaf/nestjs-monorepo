@@ -27,27 +27,21 @@ export default function App() {
     });
   }, []);
 
-  if (lodash.isEmpty(projectA)) return null;
-
-  if (lodash.isEmpty(projectB)) return null;
-
-  if (lodash.isEmpty(serverlessMessage)) return null;
-
   return (
     <>
       <div>
-        <h1>{projectA.name}</h1>
-        <p>{projectA.email}</p>
+        <h1>{projectA?.name}</h1>
+        <p>{projectA?.email}</p>
       </div>
 
       <div>
-        <h1>{projectB.name}</h1>
-        <p>{projectB.email}</p>
+        <h1>{projectB?.name}</h1>
+        <p>{projectB?.email}</p>
       </div>
 
       <div>
-        <h1>{serverlessMessage.name}</h1>
-        <p>{serverlessMessage.email}</p>
+        <h1>{serverlessMessage?.name}</h1>
+        <p>{serverlessMessage?.email}</p>
       </div>
     </>
   );
