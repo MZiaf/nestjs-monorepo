@@ -9,9 +9,12 @@
     "clean": "lerna clean",
     "bootstrap": "lerna bootstrap",
     "build": "lerna run build",
-    "db:migrate":"lerna exec npx prisma migrate dev --scope=project-a"
+    "db:migrate": "lerna exec npx prisma migrate dev --scope=project-a",
+    "prepare": "husky install",
+    "lint-staged":"lerna run lint-staged"
   },
   "devDependencies": {
+    "husky": "^8.0.0",
     "lerna": "^6.0.1"
   }
 }

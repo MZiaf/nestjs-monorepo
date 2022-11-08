@@ -8,6 +8,11 @@
   "prisma": {
     "schema": "src/prisma/schema.prisma"
   },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "yarn eslint --ext .ts,.tsx --fix"
+    ]
+  },
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
