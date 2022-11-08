@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -e
+
+# Setup environment variables
+source ./compose.env
+
+# Setup script functions
+source ./bin/utils
+source ./bin/command
+
+# Starting script command
+run_command "$@"

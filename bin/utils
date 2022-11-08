@@ -1,0 +1,4 @@
+function up_service() {
+  echo $@
+  sudo docker compose up --build -d "$@"
+}
