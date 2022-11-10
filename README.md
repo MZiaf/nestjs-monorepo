@@ -61,6 +61,19 @@ yarn build
 
 start each service
 
+## Docker setup
+
+Execute the following command in the root dir.
+
+```bash
+./compose start
+  or
+./compose start fresh #this will re-create the root image.
+```
+
+This will create an image with lerna configuration.
+The rest of the services will use this image as a starting point.
+
 ## Structure
 
 A single package-lock.json will be generated at root, each service will have its own package.json file.
