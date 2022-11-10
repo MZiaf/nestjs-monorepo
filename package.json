@@ -11,7 +11,8 @@
     "build": "lerna run build",
     "db:migrate": "lerna exec npx prisma migrate dev --scope=project-a",
     "prepare": "husky install",
-    "lint-staged":"lerna run lint-staged"
+    "lint-staged":"lerna run lint-staged",
+    "ui": "lerna exec yarn start --scope=client"
   },
   "devDependencies": {
     "husky": "^8.0.0",
