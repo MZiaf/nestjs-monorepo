@@ -1,10 +1,10 @@
 FROM lerna-root-image
 
-WORKDIR /nestjs-monorepo/apps/project-a
+WORKDIR /usr/src/app/nestjs-monorepo/apps/project-a
 
-COPY . .
+ADD . .
 
-WORKDIR /nestjs-monorepo
+WORKDIR /usr/src/app/nestjs-monorepo
 
 RUN yarn bootstrap
 
@@ -12,8 +12,8 @@ RUN yarn build
 
 EXPOSE 3000
 
-WORKDIR /nestjs-monorepo/apps/project-a
+WORKDIR /usr/src/app/nestjs-monorepo/apps/project-a
 
-RUN chmod +x ./start.sh
+RUN chmod +x /usr/src/app/nestjs-monorepo/apps/project-a/start.sh
 
-ENTRYPOINT [ "./start.sh" ]
+ENTRYPOINT [ "/usr/src/app/nestjs-monorepo/apps/project-a/start.sh" ]
