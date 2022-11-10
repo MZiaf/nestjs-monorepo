@@ -1,4 +1,6 @@
 function up_service() {
-  echo $@
-  sudo docker compose up --build -d "$@"
+  for service in $@; do
+    echo "== Starting ${service}== "
+    sudo docker compose up --build -d "$@"
+  done
 }
