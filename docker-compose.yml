@@ -1,19 +1,20 @@
 version: "3.8"
 
 services:
-  postgres:
-    container_name: postgres
-    image: postgres
+  db:
+    image: mysql:5.7
+    restart: always
+    container_name: db
     environment:
-      POSTGRES_USER: ${DB_USERNAME}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-      DB_HOST: ${DB_HOST}
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
     ports:
-      - "5432:5432"
-    networks:
-      - invoice-network
+      - '3306:3306'
+    expose:
+      - '3306'
     volumes:
-      - db-data:/var/lib/postgresql/data
+      - db:/var/lib/mysql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
 
   project-a:
     container_name: project-a
@@ -22,9 +23,9 @@ services:
     ports:
       - 3000:3000
     depends_on:
-      - postgres
-    networks:
-      - invoice-network
+      - db
+    links:
+      - db
 
   project-b:
     container_name: project-b
@@ -40,8 +41,6 @@ services:
     ports:
       - 4000:4000
 
-networks:
-  invoice-network:
-
 volumes:
-  db-data:
+  db:
+    driver: local
