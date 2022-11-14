@@ -1,6 +1,5 @@
 import axios from "axios";
 import React from "react";
-import * as lodash from "lodash";
 
 const projectAURL = "http://localhost:3000";
 const projectBURL = "http://localhost:3001";
