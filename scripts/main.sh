@@ -5,7 +5,7 @@ function run_command() {
     run_command stop
 
     if [ "$(docker images -q lerna-root-image:latest 2>/dev/null)" == "" ] || [ "$2" = "fresh" ]; then
-      docker build . -t lerna-root-image
+      docker build ../ -t lerna-root-image
     fi
 
     echo "== Starting Database =="
