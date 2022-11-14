@@ -2,19 +2,17 @@ version: "3.8"
 
 services:
   db:
-    image: mysql:5.7
-    restart: always
     container_name: db
+    image: mysql:5.7@sha256:9415bfb9a83752d30b6395c84dde03573eeba7b5b9c937c0e09c3e7b32c76c93
     environment:
-      - MYSQL_DATABASE=${DB_NAME}
       - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_USER=${DB_USERNAME}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
     ports:
-      - '3306:3306'
-    expose:
-      - '3306'
+      - ${DB_PORT}:${DB_PORT}
     volumes:
-      - db:/var/lib/mysql
-      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - invoice_mysql_data:/var/lib/mysql
 
   project-a:
     container_name: project-a
@@ -42,5 +40,5 @@ services:
       - 4000:4000
 
 volumes:
-  db:
+  invoice_mysql_data:
     driver: local

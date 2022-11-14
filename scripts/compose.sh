@@ -5,8 +5,8 @@ set -e
 source ./compose.env
 
 # Setup script functions
-source ./bin/utils
-source ./bin/command
+source ./utils.sh
+source ./main.sh
 
 # Starting script command
 run_command "$@"
