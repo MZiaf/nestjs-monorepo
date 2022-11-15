@@ -3,7 +3,7 @@
   "private": true,
   "workspaces": [
     "apps/*",
-    "client"
+    "react-web"
   ],
   "scripts": {
     "clean": "lerna clean",
@@ -12,7 +12,7 @@
     "db:migrate": "lerna exec npx prisma migrate dev --scope=project-a",
     "prepare": "husky install",
     "lint-staged":"lerna run lint-staged",
-    "ui": "lerna exec yarn start --scope=client"
+    "ui": "lerna exec yarn start --scope=react-web"
   },
   "devDependencies": {
     "husky": "^8.0.0",

@@ -3,14 +3,20 @@ version: "3.8"
 services:
   db:
     container_name: db
-    image: mysql:5.7@sha256:9415bfb9a83752d30b6395c84dde03573eeba7b5b9c937c0e09c3e7b32c76c93
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
     environment:
+      - MYSQL_ROOT_HOST=%
       - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
       - MYSQL_DATABASE=${DB_NAME}
       - MYSQL_USER=${DB_USERNAME}
       - MYSQL_PASSWORD=${DB_PASSWORD}
     ports:
       - ${DB_PORT}:${DB_PORT}
+    expose:
+      - ${DB_PORT}
+    networks:
+      - backend_network
     volumes:
       - invoice_mysql_data:/var/lib/mysql
 
@@ -22,6 +28,8 @@ services:
       - 3000:3000
     depends_on:
       - db
+    networks:
+      - backend_network
     links:
       - db
 
@@ -41,4 +49,8 @@ services:
 
 volumes:
   invoice_mysql_data:
-    driver: local
+
+
+networks:
+  backend_network:
+    driver: bridge

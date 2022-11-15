@@ -63,12 +63,12 @@ start each service
 
 ## Docker setup
 
-Execute the following command in the root dir.
+Execute the following command in the scripts dir.
 
 ```bash
-./compose start
+./compose.sh start
   or
-./compose start fresh #this will re-create the root image.
+./compose.sh start fresh # this will re-create the root image.
 ```
 
 This will create an image with lerna configuration.
